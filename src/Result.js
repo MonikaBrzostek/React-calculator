@@ -7,6 +7,9 @@ export default class Result extends Component {
         style={{
           border: '2px solid white',
           backgroundColor: 'black',
+          color: 'white',
+          textAlign: 'right',
+          fontSize: 20,
           height: 100,
           width: 320,
           marginLeft: 'auto',
@@ -14,7 +17,7 @@ export default class Result extends Component {
           marginTop: 50,
         }}
       >
-        ccdvcdsc
+        <h1 style={{ paddingRight: 5 }}>{this.props.result}</h1>
       </div>
     )
   }
