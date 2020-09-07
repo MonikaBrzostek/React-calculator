@@ -1,8 +1,11 @@
 import React from 'react'
 import './App.css'
-import Result from './Result'
-import Keypad from './Keypad'
+import Result from '../Result/Result'
+import Keypad from '../Keypad/Keypad'
 import mathloop from './video/mathloop.mp4'
+
+// dzielenie przez 0
+//
 
 class App extends React.Component {
   constructor() {
@@ -15,16 +18,13 @@ class App extends React.Component {
   // warning about eval
   // jak inaczej rozwiazac zerowanie wyniku
   handleClick = (e) => {
-    if (e !== '=' && e !== 'C') {
-      let result = this.state.result.concat(e)
+    if (e.target.name !== '=' && e.target.name !== 'C') {
+      let result = this.state.result + e.target.name
       this.setState({ result })
-    } else if (e === '=') {
+    } else if (e.target.name === '=') {
       let result = eval(this.state.result)
       this.setState({ result })
-      setTimeout(() => {
-        this.setState({ result: '' })
-      }, 2000)
-    } else if (e === 'C') {
+    } else if (e.target.name === 'C') {
       this.setState({ result: '' })
     }
   }
@@ -49,8 +49,10 @@ class App extends React.Component {
         >
           <source src={mathloop} type="video/mp4" />
         </video>
-        <Result result={this.state.result} />
-        <Keypad handleClick={this.handleClick} />
+        <div className="calculator">
+          <Result result={this.state.result} />
+          <Keypad handleClick={this.handleClick} />
+        </div>
       </div>
     )
   }
