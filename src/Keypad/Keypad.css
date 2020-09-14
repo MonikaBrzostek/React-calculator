@@ -4,6 +4,7 @@ button {
   height: 80px;
   font-size: 24px;
   border-radius: 25px;
+  outline: none;
 }
 
 .keypad {
@@ -21,4 +22,5 @@ button {
   background-color: black;
   color: black;
   border-radius: 25px;
+  outline: none;
 }

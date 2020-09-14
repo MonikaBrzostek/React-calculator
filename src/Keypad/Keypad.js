@@ -3,8 +3,6 @@ import './Keypad.css'
 
 export default class Keypad extends Component {
   render() {
-    // dlaczego jak zostawiam pustego buttona to rozjezdza mi sie caly uklad?
-    // dlaczego tak wyglada onClick?
     return (
       <div className="keypad">
         <button name="1" onClick={this.props.handleClick}>
