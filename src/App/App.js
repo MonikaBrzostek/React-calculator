@@ -3,9 +3,6 @@ import './App.css'
 import Result from '../Result/Result'
 import Keypad from '../Keypad/Keypad'
 
-//Things to change.
-// block mathematical sign after each other
-
 class App extends React.Component {
   constructor() {
     super()
@@ -28,7 +25,8 @@ class App extends React.Component {
         (e.target.name === '*' ||
           e.target.name === '/' ||
           e.target.name === '-' ||
-          e.target.name === '+')
+          e.target.name === '+' ||
+          e.target.name === '.')
       ) {
         this.setState({ result: '', resultEvaluated: false })
       } else if (
@@ -47,16 +45,19 @@ class App extends React.Component {
       ) {
         this.setState({ result: e.target.name, resultEvaluated: false })
       } else if (
+        //checker for no setting math symbols after eachother
         (result.slice(result.length - 1) === '/' ||
           result.slice(result.length - 1) === '*' ||
           result.slice(result.length - 1) === '+' ||
-          result.slice(result.length - 1) === '-') &&
+          result.slice(result.length - 1) === '-' ||
+          result.slice(result.length - 1) === '.') &&
         (e.target.name === '/' ||
           e.target.name === '*' ||
           e.target.name === '-' ||
-          e.target.name === '+')
+          e.target.name === '+' ||
+          e.target.name === '.')
       ) {
-        console.log('Too many mathematical signs in a row')
+        console.log('Too many mathematical symbols in a row')
       } else if (this.state.result.length > 12) {
         //checker for a too long number
         alert('The number is too long for our tiny calculator :(')
@@ -65,6 +66,8 @@ class App extends React.Component {
         const result = this.state.result + e.target.name
         this.setState({ result, resultEvaluated: false })
       }
+    } else if (this.state.resultEvaluated === true && e.target.name === '=') {
+      this.clear()
     } else if (
       //checker for deviding by zero
       e.target.name === '=' &&
@@ -87,6 +90,17 @@ class App extends React.Component {
         e.target.name === '9')
     ) {
       this.setState({ result: e.target.name, resultEvaluated: false })
+    } else if (
+      //allowing to add math symbol after the result
+      (e.target.name === '*' ||
+        e.target.name === '/' ||
+        e.target.name === '-' ||
+        e.target.name === '+' ||
+        e.target.name === '+') &&
+      this.state.resultEvaluated === true
+    ) {
+      const result = this.state.result + e.target.name
+      this.setState({ result, resultEvaluated: false })
     } else if (e.target.name === '=') {
       //result count + rounding to 5 decimals
       this.calculateResult()
