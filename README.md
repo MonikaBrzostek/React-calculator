@@ -4,7 +4,7 @@ Calculator built with React.js
 
 ### Demo
 
-Coming soon
+https://react-calculator-mbrzostek.herokuapp.com/
 
 ### Author
 
