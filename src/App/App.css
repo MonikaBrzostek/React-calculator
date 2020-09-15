@@ -1,18 +1,21 @@
 .calculator {
   width: 320px;
-  margin: 0 auto;
+
   border: 2px solid white;
-  margin-top: 50px;
   border-radius: 25px;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.video {
-  position: absolute;
+.container {
+  background: url(img/white-numbers-background.jpg) no-repeat center center
+    fixed;
+
+  background-size: cover;
+  height: 700px;
   width: 100%;
-  left: 50%;
-  top: 50%;
-  height: 1000px;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: -1;
+  position: relative;
 }
