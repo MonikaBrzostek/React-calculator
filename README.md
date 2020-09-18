@@ -1,4 +1,4 @@
-# React-calculator
+# react-calculator
 Calculator built with React.js
 
 
@@ -14,8 +14,8 @@ Monika Brzostek
 ### Installation
 
 ```bash
-git clone https://github.com/MonikaBrzostek/React-calculator.git
-cd React-calculator
+git clone https://github.com/MonikaBrzostek/react-calculator.git
+cd react-calculator
 npm install
 ```
 
